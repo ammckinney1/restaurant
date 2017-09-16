@@ -1,15 +1,14 @@
-Class Restaurant {
-	
-string restaurantName;
-string serverName;
-int capacity;
-
+Class Restaurant 
+{
 private:
-	void restaurantName();
-	void setServerName();
-	void setCapacity();
+    string restaurantName;
+    string serverName;
+    int capacity;
 public:
-	string getRestaurantName();
-	string getServerName();
-	int getCapacity();
+	void setRestaurantName(string _restaurantName);
+	void setServerName(string _serverName);
+	void setCapacity(int _capacity);
+	string getRestaurantName() const;
+	string getServerName() const;
+	int getCapacity() const;
 }
