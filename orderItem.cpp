@@ -26,6 +26,10 @@ void orderItem::setTax(double _tax){
 	tax = _tax;
 }
 
+void orderItem::setTax(double _taxRate){
+	taxRate = _tax;
+}
+
 void orderItem::setTip(double _tip){
 	tip = _tip;
 }
@@ -58,6 +62,10 @@ double orderItem::getTotal() const{
 	return total;
 }
 
+double orderItem::getSubTotal() const{
+	return subTotal;
+}
+
 double orderItem::getTax() const{
 	return tax;
 }
@@ -76,5 +84,44 @@ int orderItem::getServerRating() const{
 
 int orderItem::getNumOfCustomers() const{
 	return numOfCustomers;
+}
+
+double orderItem::calculateTax(double subTotal){
+	tax = subTotal * getTaxRate();
+	return tax;
+};
+
+void orderItem::addFoodItem(foodItem.Name){
+	foodOrder.push_back(foodItem.name)
+}
+
+void orderItem::deleteFoodItem(){
+	foodOrder.pop_back()
+}
+
+int orderItem::getNumOfItems(orderItem){
+	return foodOrder.size();
+}
+
+double orderItem::getSubTotal(orderItem){
+	for (i=0; i<foodOrder.size(); i++){
+		subTotal = subTotal + foodOrder.price(i);
+	}
+	return subTotal;
+}
+
+double orderItem::getTotal(){
+	total = subTotal + tax;
+	return total;
+}
+
+void orderItem::printTicket(orderItem){
+	for (i=0: i<foodOrder.size(); i++){
+		cout << foodOrder.name(i) << endl;
+		cout << foodOrder.type(i) << endl;
+		cout << foodOrder.note(i) << endl;
+		cout << foodOrder.price(i) << endl;
+		cout << endl;
+	}
 }
 

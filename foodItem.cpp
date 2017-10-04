@@ -12,6 +12,10 @@ void foodItem::setnotes(string _note){
 	notes = _note;
 }
 
+void foodItem::setPrice(double _price){
+	price = _price;
+}
+
 string foodItem::getName(){
 	return name;
 }
@@ -22,4 +26,8 @@ string foodItem::getType(){
 
 string foodItem::getnotes(){
 	return notes;
+}
+
+double foodItem::getPrice(){
+	return price;
 }
