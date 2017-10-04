@@ -9,12 +9,13 @@ class foodItem {
 		double price;
 
 	private:
-		void setName();
-		void setType();
-		void setnotes();
+		void setName(string _name);
+		void setType(string _type);
+		void setnotes(string _notes);
 	public:
 		string getName();
 		string getType();
 		string getnotes();
 };
 #endif
+

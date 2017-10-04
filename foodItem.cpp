@@ -1,38 +1,25 @@
-Class foodItem 
-{
-private:
-    string name, type, notes;
-    double price;
+#include "foodItem.h"
 
-public:
-	void setName(string _name);
-	void setType(string _type);
-	void setnotes(string _note);
-	string getName() const;
-	string getType() const;
-	string getnotes() const;
-};
+void foodItem::setName(string _name) {
+	
+}
 
-void setName(string _name){
-	name = _name;
-};
-
-void setType(string _type){
+void foodItem::setType(string _type){
 	type = _type;
-};
+}
 
-void setnotes(string _note){
-	note = _note;
-};
+void foodItem::setnotes(string _note){
+	notes = _note;
+}
 
-string getName(){
+string foodItem::getName(){
 	return name;
-};
+}
 
-string getType(){
+string foodItem::getType(){
 	return type;
-};
+}
 
-string getnotes(){
+string foodItem::getnotes(){
 	return notes;
-};
+}

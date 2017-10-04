@@ -1,107 +1,80 @@
-Class orderItem 
-{
-private:
-    string customerName, serverName;
-    boolean paid;
-    double total, tax, tip;
-    int tableNumber, serverRating, numOfCustomers;
+#include "orderItem.h"
+using namespace std;
 
-public:
-	void setCustomerName(string _name);
-	void setServerName(string _name);
-	void setPaid(boolean _paid);
-	void setTotal(double _total);
-	void setTax(double _tax);
-	void setTip(double _tip);
-	void setTableNumber(int _tableNumber);
-	void setServerRating(int _serverRating);
-	void setNumOfCustomers(int _numOfCustomers);
-	
-	string getCustomerName() const;
-	string  getServerName() const;
-	boolean getPaid() const;
-	double getTotal() const;
-	double getTax() const;
-	double getTip() const;
-	int getTableNumber() const;
-	int getServerRating() const;
-	int getNumOfCustomers() const;
-};
-
- void setCustomerName(string _name){
- 	customerName = _name;
- };
+void orderItem::setCustomerName(string _name) {
+	customerName = _name;
+}
  
-void setServerName(string _name){
+void orderItem::setServerName(string _name){
 	serverName = _name;
-};
+}
 
-void setPaid(){
+void orderItem::setPaid(){
 	if (paid = false){
 		paid = true;
 	}
 	else{
 		paid = false;
 	}
-};
+}
 
-void setTotal(double _total){
+void orderItem::setTotal(double _total){
 	total = _total;
-};
+}
 
-void setTax(double _tax){
+void orderItem::setTax(double _tax){
 	tax = _tax;
-};
+}
 
-void setTip(double _tip){
+void orderItem::setTip(double _tip){
 	tip = _tip;
-};
+}
 
-void setTableNumber(int _tableNumber){
+void orderItem::setTableNumber(int _tableNumber){
 	tableNumber = _tableNumber;
-};
+}
 
-void setServerRating(int _serverRating){
+void orderItem::setServerRating(int _serverRating){
 	serverRating = _serverRating;
-};
+}
 
-void SetNumOfCustomers(int _numOfCustomers){
+void orderItem::setNumOfCustomers(int _numOfCustomers){
 	numOfCustomers = _numOfCustomers;
-};
+}
 
-string getCustomerName(){
+string orderItem::getCustomerName() const{
 	return customerName;
-};
+}
 
-string  getServerName(){
+string  orderItem::getServerName() const{
 	return serverName;
-};
+}
 
-boolean getPaid(){
+bool orderItem::getPaid() const{
 	return paid;
-};
+}
 
-double getTotal(){
+double orderItem::getTotal() const{
 	return total;
-};
+}
 
-double getTax(){
+double orderItem::getTax() const{
 	return tax;
-};
+}
 
-double getTip(){
+double orderItem::getTip() const{
 	return tip;
-};
+}
 
-int getTableNumber(){
+int orderItem::getTableNumber() const{
 	return tableNumber;
-};
+}
 
-int getServerRating(){
+int orderItem::getServerRating() const{
 	return serverRating;
-};
+}
 
-int getNumOfCustomers(){
+int orderItem::getNumOfCustomers() const{
 	return numOfCustomers;
-};
+}
 
