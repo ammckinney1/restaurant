@@ -1,7 +1,7 @@
 #include "foodItem.h"
 
 void foodItem::setName(string _name) {
-	
+	name = _name;
 }
 
 void foodItem::setType(string _type){

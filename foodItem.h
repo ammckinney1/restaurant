@@ -8,14 +8,16 @@ class foodItem {
 		string name, type, notes;
 		double price;
 
-	private:
+	public:
 		void setName(string _name);
 		void setType(string _type);
 		void setnotes(string _notes);
+		void setPrice(double _price);
 	public:
 		string getName();
 		string getType();
 		string getnotes();
+		double getPrice();
 };
 #endif
 
