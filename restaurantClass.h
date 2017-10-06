@@ -9,7 +9,7 @@ class Restaurant {
 		string serverName;
 		int capacity;
 
-	private:
+	public:
 		void setRestaurantName(string _restaurantName);
 		void setServerName(string _serverName);
 		void setCapacity(int _capacity);
