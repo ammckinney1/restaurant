@@ -91,19 +91,19 @@ double orderItem::calculateTax(double subTotal){
 	return tax;
 };
 
-void orderItem::addFoodItem(foodItem.Name){
-	foodOrder.push_back(foodItem.name)
+void orderItem::addFoodItem(foodItem item){
+	foodOrder.push_back(item)
 }
 
 void orderItem::deleteFoodItem(){
 	foodOrder.pop_back()
 }
 
-int orderItem::getNumOfItems(orderItem){
+int orderItem::getNumOfItems(){
 	return foodOrder.size();
 }
 
-double orderItem::getSubTotal(orderItem){
+double orderItem::getSubTotal(){
 	for (i=0; i<foodOrder.size(); i++){
 		subTotal = subTotal + foodOrder.price(i);
 	}
@@ -115,7 +115,7 @@ double orderItem::getTotal(){
 	return total;
 }
 
-void orderItem::printTicket(orderItem){
+void orderItem::printTicket(){
 	for (i=0: i<foodOrder.size(); i++){
 		cout << foodOrder.name(i) << endl;
 		cout << foodOrder.type(i) << endl;

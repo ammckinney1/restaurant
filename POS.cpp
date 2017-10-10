@@ -32,32 +32,72 @@ int main() {
 	bool nextOrder = true;
 	while(nextOrder) {
 		//do order stuff
-		int selector = addOrSelect();
-		if(selector == 3) {
-			break;
-		} else if (selector == 2) {
-			
-		} else if (selector == 1) {
-			//choose a category
-			cout << "Select a category of items" << endl;
-			for(int cat = 0; cat < itemTypes.size(); cat++) {
-				cout << (cat+1) << ". " << itemTypes[cat] << endl;
-			}
-			int catSelect = 0;
-			while(catSelect < 1 || catSelect > itemTypes.size()) {
-				cin >> catSelect;
-				
-				if(catSelect < 1 || catSelect > itemTypes.size()) {
-						cout << "Bad selection, please try again." << endl;
+		bool continueOrder = true;
+		while(continueOrder) {
+			int selector = addOrSelect();
+			if(selector == 3) {
+				break;
+			} else if (selector == 2) {
+				break;
+			} else if (selector == 1) {
+				//choose a category
+				cout << "Select a category of items" << endl;
+				for(int cat = 0; cat < itemTypes.size(); cat++) {
+					cout << (cat+1) << ". " << itemTypes[cat] << endl;
 				}
-			}
-			catSelect--;
-			
-			//category is selected, now choose an item
-			cout << "Select an item to add to the order" << endl;
-			vector<foodItem> catItems;
-			for(int it = 0; it < items.size(); it++) {
+				int catSelect = 0;
+				while(catSelect < 1 || catSelect > itemTypes.size()) {
+					cin >> catSelect;
 				
+					if(catSelect < 1 || catSelect > itemTypes.size()) {
+							cout << "Bad selection, please try again." << endl;
+					}
+				}
+				catSelect--;
+			
+				//category is selected, now choose an item
+				cout << "Select an item to add to the order" << endl;
+				vector<foodItem> catItems;
+				int itemCounter = 1;
+				for(int it = 0; it < items.size(); it++) {
+					if(items[it].getType() == itemTypes[catSelect]) {
+						cout << itemCounter << ". " << items[it].getName() << ": " << items[it].getPrice() << endl;
+						catItems.push_back(items[it]);
+						itemCounter++;
+					}
+				}
+				int itemSelect = 0;
+				while(itemSelect < 1 || itemSelect > itemCounter) {
+					cin >> itemSelect;
+					if(itemSelect < 1 || itemSelect > itemCounter) {
+						cout << "Bad selection, please try again." << endl;
+					}
+				}
+				
+				
+				//item is selected, determine if they want to make any changes to the item
+				foodItem item = catItems[itemSelect - 1].copy();
+				string itemNotes;
+				cout << "If you would like to make any changes to the base item, please enter below. if not, type 'n/a' or 'none'." << endl;
+				cin >> itemNotes;
+				item.setnotes(itemNotes);
+				
+				order.addFoodItem(item);
+			}
+			
+			bool isCompleteWorking = true;
+			while(isCompleteWorking) {
+				cout << "Is this order complete? (yes/no)" << endl;
+				char sel;
+				cin >> sel;
+				if(sel == 'y' || sel == 'Y') {
+					continueOrder = false;
+					isCompleteWorking = false;
+				} else if (sel == 'n' || sel == 'N') {
+					isCompleteWorking = false;
+				} else {
+					cout << "Bad input. Either input 'yes' (or 'y') or 'no' (or 'n')." << endl;
+				}
 			}
 		}
 		
@@ -83,14 +123,14 @@ int main() {
 
 int addOrSelect() {
 	int retval = 0;
-	while(retval < 1 && retval > 3) {
+	while(retval < 1 && retval > 2) {
 		cout << "Do you wish to add a new item to the order, or edit an existing item?" << endl;
 		cout << "1. Add a new item" << endl;
-		cout << "2. Edit existing item" << endl;
-		cout << "3. exit POS" << endl;
+		//cout << "2. Edit existing item" << endl;
+		cout << "2. exit POS" << endl;
 	
 		cin >> retval;
-		if(retval < 1 || retval > 3) {
+		if(retval < 1 || retval > 2) {
 			cout << "Bad input! Value must be a number between 1 and 3." << endl;
 		}
 	}

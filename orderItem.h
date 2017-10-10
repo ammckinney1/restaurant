@@ -24,6 +24,10 @@ public:
 	void setServerRating(int _serverRating);
 	void setNumOfCustomers(int _numOfCustomers);
 	
+	void addFoodItem(foodItem item);
+	void deleteFoodItem();
+	int getNumOfItems();
+	
 	string getCustomerName() const;
 	string  getServerName() const;
 	bool getPaid() const;

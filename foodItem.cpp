@@ -31,3 +31,12 @@ string foodItem::getnotes(){
 double foodItem::getPrice(){
 	return price;
 }
+
+foodItem foodItem::copy() {
+	foodItem retval;
+	retval.setName(this.getName());
+	retval.setPrice(this.getPrice());
+	retval.setType(this.getType());
+	retval.setnotes(this.getnotes());
+	return retval;
+}

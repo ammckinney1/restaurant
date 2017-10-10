@@ -18,6 +18,7 @@ class foodItem {
 		string getType();
 		string getnotes();
 		double getPrice();
+		foodItem copy();
 };
 #endif
 
