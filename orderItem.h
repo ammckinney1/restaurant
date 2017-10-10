@@ -1,6 +1,7 @@
 #ifndef ORDERITEM_H
 #define ORDERITEM_H
 #include <string>
+#include "foodItem.h"
 using namespace std;
 
 class orderItem 
@@ -10,6 +11,7 @@ private:
     bool paid;
     double total, tax, tip;
     int tableNumber, serverRating, numOfCustomers;
+	vector<foodItem> foodOrder;
 
 public:
 	void setCustomerName(string _name);
