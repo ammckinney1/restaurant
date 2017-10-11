@@ -152,7 +152,7 @@ vector<string> splitString(const string& origin, const string& delim) {
 	return return_val;
 }
 
-int main() {
+/*int main() {
 	vector<foodItem> foods;
 	Restaurant restaurant;
 	
@@ -173,4 +173,4 @@ int main() {
 	}
 	
 	return 0;
-}
+}*/

@@ -10,7 +10,7 @@ int addOrSelect();
 int main() {
 	vector<foodItem> items;
 	Restaurant restData;
-	bool loaded = LoadData(restData, items, "foodData.txt", "restaurantData.txt");
+	bool loaded = LoadData(&restData, &items, "foodData.txt", "restaurantData.txt");
 	if(!loaded) {
 		//error in the loading process, report it and then exit
 	}
@@ -24,7 +24,7 @@ int main() {
 			}
 		}
 		if(shouldAdd) {
-			itemTypes.push_back(items[i].getType);
+			itemTypes.push_back(items[i].getType());
 		}
 	}
 	
