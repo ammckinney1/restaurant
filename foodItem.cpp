@@ -34,9 +34,9 @@ double foodItem::getPrice(){
 
 foodItem foodItem::copy() {
 	foodItem retval;
-	retval.setName(this.getName());
-	retval.setPrice(this.getPrice());
-	retval.setType(this.getType());
-	retval.setnotes(this.getnotes());
+	retval.setName(this->getName());
+	retval.setPrice(this->getPrice());
+	retval.setType(this->getType());
+	retval.setnotes(this->getnotes());
 	return retval;
 }

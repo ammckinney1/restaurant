@@ -152,6 +152,11 @@ vector<string> splitString(const string& origin, const string& delim) {
 	return return_val;
 }
 
+
+/*
+ * Drive main. Uncomment to compile driver
+ */
+/*
 int main() {
 	vector<foodItem> foods;
 	Restaurant restaurant;
@@ -174,3 +179,4 @@ int main() {
 	
 	return 0;
 }
+*/

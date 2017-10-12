@@ -1,4 +1,5 @@
 #include "orderItem.h"
+#include <iostream>
 using namespace std;
 
 void orderItem::setCustomerName(string _name) {
@@ -22,11 +23,7 @@ void orderItem::setTotal(double _total){
 	total = _total;
 }
 
-void orderItem::setTax(double _tax){
-	tax = _tax;
-}
-
-void orderItem::setTax(double _taxRate){
+void orderItem::setTaxRate(double _tax){
 	taxRate = _tax;
 }
 
@@ -58,14 +55,6 @@ bool orderItem::getPaid() const{
 	return paid;
 }
 
-double orderItem::getTotal() const{
-	return total;
-}
-
-double orderItem::getSubTotal() const{
-	return subTotal;
-}
-
 double orderItem::getTax() const{
 	return tax;
 }
@@ -92,20 +81,24 @@ double orderItem::calculateTax(double subTotal){
 };
 
 void orderItem::addFoodItem(foodItem item){
-	foodOrder.push_back(item)
+	foodOrder.push_back(item);
 }
 
 void orderItem::deleteFoodItem(){
-	foodOrder.pop_back()
+	foodOrder.pop_back();
 }
 
 int orderItem::getNumOfItems(){
 	return foodOrder.size();
 }
 
+double orderItem::getTaxRate() const {
+	return taxRate;
+}
+
 double orderItem::getSubTotal(){
-	for (i=0; i<foodOrder.size(); i++){
-		subTotal = subTotal + foodOrder.price(i);
+	for (int i=0; i<foodOrder.size(); i++){
+		subTotal = subTotal + foodOrder[i].getPrice();
 	}
 	return subTotal;
 }
@@ -116,11 +109,11 @@ double orderItem::getTotal(){
 }
 
 void orderItem::printTicket(){
-	for (i=0: i<foodOrder.size(); i++){
-		cout << foodOrder.name(i) << endl;
-		cout << foodOrder.type(i) << endl;
-		cout << foodOrder.note(i) << endl;
-		cout << foodOrder.price(i) << endl;
+	for (int i=0; i<foodOrder.size(); i++){
+		cout << foodOrder[i].getName() << endl;
+		cout << foodOrder[i].getType() << endl;
+		cout << foodOrder[i].getnotes() << endl;
+		cout << foodOrder[i].getPrice() << endl;
 		cout << endl;
 	}
 }
