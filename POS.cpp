@@ -4,10 +4,12 @@
 #include "orderItem.h"
 #include <iostream>
 using namespace std;
+#define DEBUG
 
 int addOrSelect();
 
 int main() {
+	string parseHelper;
 	vector<foodItem> items;
 	Restaurant restData;
 	bool loaded = LoadData(&restData, &items, "foodData.txt", "restaurantData.txt");
@@ -30,9 +32,12 @@ int main() {
 	
 	orderItem order;
 	bool nextOrder = true;
+	
+	
 	while(nextOrder) {
 		//do order stuff
 		bool continueOrder = true;
+		
 		while(continueOrder) {
 			int selector = addOrSelect();
 			if(selector == 3) {
@@ -47,7 +52,8 @@ int main() {
 				}
 				int catSelect = 0;
 				while(catSelect < 1 || catSelect > itemTypes.size()) {
-					cin >> catSelect;
+					getline(cin, parseHelper);
+					catSelect = stoi(parseHelper);
 				
 					if(catSelect < 1 || catSelect > itemTypes.size()) {
 							cout << "Bad selection, please try again." << endl;
@@ -68,7 +74,8 @@ int main() {
 				}
 				int itemSelect = 0;
 				while(itemSelect < 1 || itemSelect > itemCounter) {
-					cin >> itemSelect;
+					getline(cin, parseHelper);
+					itemSelect = stoi(parseHelper);
 					if(itemSelect < 1 || itemSelect > itemCounter) {
 						cout << "Bad selection, please try again." << endl;
 					}
@@ -79,7 +86,7 @@ int main() {
 				foodItem item = catItems[itemSelect - 1].copy();
 				string itemNotes;
 				cout << "If you would like to make any changes to the base item, please enter below. if not, type 'n/a' or 'none'." << endl;
-				cin >> itemNotes;
+				getline(cin, itemNotes);
 				item.setnotes(itemNotes);
 				
 				order.addFoodItem(item);
@@ -89,7 +96,9 @@ int main() {
 			while(isCompleteWorking) {
 				cout << "Is this order complete? (yes/no)" << endl;
 				char sel;
-				cin >> sel;
+				string sels;
+				getline(cin, sels);
+				sel = sels.c_str()[0];
 				if(sel == 'y' || sel == 'Y') {
 					continueOrder = false;
 					isCompleteWorking = false;
@@ -100,13 +109,16 @@ int main() {
 				}
 			}
 		}
+		order.printTicket();
 		
 		//order is finished, ask if the POS should do another order
 		bool testEnd = true;
 		while(testEnd) {
 			cout << "Do you wish to make another order? (y/n)" << endl;
 			char c;
-			cin >> c;
+			string sels;
+			getline(cin, sels);
+			c = sels.c_str()[0];
 			if(c == 'Y' || c == 'y') {
 				testEnd = false;
 			} else if (c == 'N' || c == 'n') {
@@ -122,14 +134,16 @@ int main() {
 }
 
 int addOrSelect() {
+	string parseHelper;
 	int retval = 0;
-	while(retval < 1 && retval > 2) {
+	while(retval < 1 || retval > 2) {
 		cout << "Do you wish to add a new item to the order, or edit an existing item?" << endl;
 		cout << "1. Add a new item" << endl;
 		//cout << "2. Edit existing item" << endl;
 		cout << "2. exit POS" << endl;
 	
-		cin >> retval;
+		getline(cin, parseHelper);
+		retval = stoi(parseHelper);
 		if(retval < 1 || retval > 2) {
 			cout << "Bad input! Value must be a number between 1 and 3." << endl;
 		}
