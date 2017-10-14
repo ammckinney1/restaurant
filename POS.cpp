@@ -12,7 +12,7 @@ int main() {
 	string parseHelper;
 	vector<foodItem> items;
 	Restaurant restData;
-	bool loaded = LoadData(restData, items, "foodData.txt", "restaurantData.txt");
+	bool loaded = LoadData(&restData, &items, "foodData.txt", "restaurantData.txt");
 	if(!loaded) {
 		//error in the loading process, report it and then exit
 		cout << "Could not load Data files, exiting..." << endl;
