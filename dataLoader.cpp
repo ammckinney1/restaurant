@@ -154,7 +154,7 @@ vector<string> splitString(const string& origin, const string& delim) {
 
 
 /*
- * Drive main. Uncomment to compile driver
+ * Driver main. Uncomment to compile driver
  */
 /*
 int main() {
