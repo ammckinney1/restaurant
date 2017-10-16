@@ -43,6 +43,30 @@ void orderItem::setNumOfCustomers(int _numOfCustomers){
 	numOfCustomers = _numOfCustomers;
 }
 
+foodItem orderItem::getFoodItemAt(int count) {
+	if(count < foodOrder.size()) {
+		return foodOrder[count];
+	}
+}
+
+void orderItem::setFoodItemAt(int count, foodItem item) {
+	if(count < foodOrder.size()) {
+		foodOrder[count] = item;
+	}
+}
+
+void orderItem::removeFoodItemAt(int count) {
+	if(count < foodOrder.size()) {
+		foodItem holder;
+		for(int i = count+1; i < foodOrder.size(); i++) {
+			holder = foodOrder[i];
+			foodOrder[i] = foodOrder[i-1];
+			foodOrder[i-1] = holder;
+		}
+		foodOrder.pop_back();
+	}
+}
+
 string orderItem::getCustomerName() const{
 	return customerName;
 }

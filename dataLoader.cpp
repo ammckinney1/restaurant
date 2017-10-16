@@ -88,9 +88,13 @@ bool LoadFoodData(vector<foodItem>& holder, string dataFile) {
 		//this is a food item file, continue
 		
 		getline(foodStream, workingLine);
-		while(workingLine != "[ENDFILE]") {
+		while(workingLine != "[ENDFILE]") { //haven't reached the end of the data file
 			
-			if(workingLine == "[FOODITEM]") {
+			if(workingLine == "[FOODITEM]") { 
+				//beginning of a single foodItem declaration
+				//create a new foodItem object
+				//and set the flag which controls whether data can be set
+				//to true
 				curItem = new foodItem();
 				isItem = true;
 			} else if (!workingLine.compare(0, fname.length(), fname)) {
@@ -112,6 +116,10 @@ bool LoadFoodData(vector<foodItem>& holder, string dataFile) {
 					curItem->setPrice(std::stod(value));
 				}
 			} else if (workingLine == "[ENDFOODITEM]") {
+				//this is the end of the current foodItem declaration
+				//add it to the list of food items and null it
+				//as well as setting the flag that controls whether data can be set
+				//to false
 				holder.push_back(*curItem);
 				curItem = 0;
 				isItem = false;

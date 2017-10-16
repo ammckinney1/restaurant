@@ -27,6 +27,9 @@ public:
 	
 	void addFoodItem(foodItem item);
 	void deleteFoodItem();
+	foodItem getFoodItemAt(int count);
+	void setFoodItemAt(int count, foodItem item);
+	void removeFoodItemAt(int count);
 	int getNumOfItems();
 	double getSubTotal();
 	double calculateTax(double subTotal);
